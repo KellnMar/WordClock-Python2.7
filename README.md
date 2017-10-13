@@ -1,7 +1,9 @@
 Update software
+
       sudo apt-get update
       
 Install necessary packets
+
       sudo apt-get install gcc make build-essential python-dev git scons swig
       sudo reboot
 
