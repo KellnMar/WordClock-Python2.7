@@ -3,9 +3,8 @@ Update software
 sudo apt-get update
 Install necessary packets
 
-sudo apt-get install gcc make build-essential python-dev git scons swig
-
-sudo reboot
+sudo apt-get install gcc make build-essential python-dev git scons swig\n
+sudo reboot\n
 
 ws2812 lib install
 
