@@ -1,3 +1,5 @@
+For "raspberry zero w" with python2.7
+
 Update software
 
       sudo apt-get update
