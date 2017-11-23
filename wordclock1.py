@@ -57,6 +57,7 @@ def clock(strip, color, wait_ms=5000):
 
     es = config.get('DEFAULT', 'es')
     ist = config.get('DEFAULT', 'ist')
+    uhr = config.get('DEFAULT', 'uhr')
     print ("Es ist ", es + ist)
 
     mi = datetime.now().strftime('%M')
@@ -73,17 +74,20 @@ def clock(strip, color, wait_ms=5000):
         hour = int(hour) + 1
         x = "0"
         hour = ((x) + str(hour))
-        print ("Stunde plus eins gleich kleiner 8 " +hour)	
+        print ("Stunde plus eins gleich kleiner 8 " +hour)
+        hourint = hour	
 
     if int(mi) >= 20 and hourint >= 9 and hourint <= 11:
         hour = int(hour) + 1
         hour = (str(hour))
         print ("Stunde plus eins nach 9 " +hour)
+	hourint = hour	
  
     if int(mi) >= 20 and hourint == 12:
         hour = ("01")
         print ("Stunde plus eins nach 9 " +hour)
-
+        hourint = hour
+	
 
     hour = config.get('DEFAULT', hour)
     h = hour.split(",")
@@ -115,6 +119,205 @@ def clock(strip, color, wait_ms=5000):
     except:
         print ("")
 
+    if hourint == (1):
+        #sieben = ("01")
+        eins = config.get('DEFAULT', '01')
+        
+        h = eins.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("eins kein Wert")
+
+    if hourint == (2):
+
+        zwei = config.get('DEFAULT', '02')
+        
+        h = zwei.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("zwei kein Wert")
+
+
+
+    if hourint == (3):
+
+        drei = config.get('DEFAULT', '03')
+        
+        h = drei.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("drei kein Wert")
+
+
+
+    if hourint == (4):
+
+        vier = config.get('DEFAULT', '04')
+        
+        h = vier.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("vier kein Wert")
+
+
+
+    if hourint == (5):
+
+        fuenf = config.get('DEFAULT', '05')
+        
+        h = fuenf.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("fuenf kein Wert")
+
+
+
+    if hourint == (6):
+        sechs = config.get('DEFAULT', '06')
+        
+        h = sechs.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
+
+        except:
+            print ("sechs kein Wert")
+
+
+    if hourint == (7):
+        #sieben = ("07")
+        sieben = config.get('DEFAULT', '07')
+        
+        h = sieben.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[5]), Color(color0, color1, color2))
+
+        except:
+            print ("sieben kein Wert")
+  
+
+    if hourint == (8):
+        #sieben = ("08")
+        acht = config.get('DEFAULT', '08')
+        
+        h = acht.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("acht kein Wert")   
+
+
+    if hourint == (9):
+
+        neun = config.get('DEFAULT', '09')
+        
+        h = neun.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("neun kein Wert")
+   
+
+
+    if hourint == (10):
+
+        zehn = config.get('DEFAULT', '10')
+        
+        h = zehn.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+
+        except:
+            print ("zehn kein Wert")
+
+
+
+    if hourint == (11):
+
+        elf = config.get('DEFAULT', '11')
+        
+        h = elf.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+
+        except:
+            print ("elf kein Wert")
+
+
+
+    if hourint == (12):
+
+        zwoelf = config.get('DEFAULT', '12')
+        
+        h = zwoelf.split(",")
+
+        try:
+            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
+        except:
+            print ("zwoelf kein Wert")
+
+
     # ab hier beginnt vor
     if int(mi) in range (20,30) or int(mi) in range (45,60):
         fvor = ("vor")
@@ -133,7 +336,7 @@ def clock(strip, color, wait_ms=5000):
             print ("vor kein Wert")
         
 
-    if int(mi) in range (35,45) or int(mi) in range (5,15):
+    if int(mi) in range (35,45) or int(mi) in range (5,20):
         
         fnach = config.get('DEFAULT','nach')
         h = fnach.split(",")
@@ -201,6 +404,9 @@ def clock(strip, color, wait_ms=5000):
             strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
             strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
             strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[5]), Color(color0, color1, color2))
+            strip.setPixelColor(int(h[6]), Color(color0, color1, color2))
             print ("viertel als Wort")
         except:
             print ("fuenf als Wort no value 4") 
@@ -227,6 +433,12 @@ def clock(strip, color, wait_ms=5000):
         strip.setPixelColor(3, Color(color0, color1, color2))
         print ("View Minute")
 
+    elif mi[1:] == "4" or (mi[1:] == "9"):
+        strip.setPixelColor(0, Color(color0, color1, color2))
+        strip.setPixelColor(1, Color(color0, color1, color2))
+        strip.setPixelColor(2, Color(color0, color1, color2))
+        strip.setPixelColor(3, Color(color0, color1, color2))
+        print ("View Minute")
 
     strip.show()
     time.sleep(wait_ms/1000.0)
