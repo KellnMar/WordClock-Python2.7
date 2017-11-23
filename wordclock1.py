@@ -13,7 +13,7 @@ LED_COUNT      = 114            # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
-LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
+LED_BRIGHTNESS = 20     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 
 
@@ -75,18 +75,19 @@ def clock(strip, color, wait_ms=5000):
         x = "0"
         hour = ((x) + str(hour))
         print ("Stunde plus eins gleich kleiner 8 " +hour)
-        hourint = hour	
+        hourint = int(hour)
+
 
     if int(mi) >= 20 and hourint >= 9 and hourint <= 11:
         hour = int(hour) + 1
         hour = (str(hour))
         print ("Stunde plus eins nach 9 " +hour)
-	hourint = hour	
+        hourint = int(hour)
  
     if int(mi) >= 20 and hourint == 12:
         hour = ("01")
         print ("Stunde plus eins nach 9 " +hour)
-        hourint = hour
+
 	
 
     hour = config.get('DEFAULT', hour)
@@ -96,7 +97,7 @@ def clock(strip, color, wait_ms=5000):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, Color(0,0,0))
 
-    #Es ist (color z.B. 255, 255, 0)
+    #Es ist Uhr (color z.B. 255, 255, 0)
     
     #strip.setPixelColor(4, Color(int(color0), int(color1), int(color2)))
     strip.setPixelColor(4, Color(color0, color1, color2))
@@ -105,6 +106,12 @@ def clock(strip, color, wait_ms=5000):
     strip.setPixelColor(8, Color(color0, color1, color2))
     strip.setPixelColor(9, Color(color0, color1, color2))
 
+
+
+    if int(mi) in range (0,4):
+        strip.setPixelColor(103, Color(color0, color1, color2))
+        strip.setPixelColor(104, Color(color0, color1, color2))
+        strip.setPixelColor(105, Color(color0, color1, color2))
     # Volle Stunden anzeigen aus ini file
 
     try:
@@ -236,10 +243,9 @@ def clock(strip, color, wait_ms=5000):
             print ("sieben kein Wert")
   
 
-    if hourint == (8):
-        #sieben = ("08")
+    if int(hourint) == (8):
+        print (hourint)
         acht = config.get('DEFAULT', '08')
-        
         h = acht.split(",")
 
         try:
@@ -252,21 +258,21 @@ def clock(strip, color, wait_ms=5000):
             print ("acht kein Wert")   
 
 
-    if hourint == (9):
-
+    if int(hourint) == (9):
+        print (hourint)
         neun = config.get('DEFAULT', '09')
-        
         h = neun.split(",")
 
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
+        strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+        strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+        strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+        strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
 
-        except:
-            print ("neun kein Wert")
-   
+        print ("neun als Wort Wert1", h[0])
+        print ("neun als Wort Wert1", h[1])
+        print ("neun als Wort Wert1", h[2])
+        print ("neun als Wort Wert1", h[3])
+
 
 
     if hourint == (10):
