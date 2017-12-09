@@ -13,13 +13,14 @@ LED_COUNT      = 114            # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
-LED_BRIGHTNESS = 20     # Set to 0 for darkest and 255 for brightest
+LED_BRIGHTNESS = 20    # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 
 
 
 def clock(strip, color, wait_ms=5000):
-        
+    for i in range(strip.numPixels()):
+        strip.setPixelColor(i, Color(0,0,0))   
     
     try:
         color4 = 0
@@ -70,6 +71,7 @@ def clock(strip, color, wait_ms=5000):
     hourint = int(hour)
 
 
+
     if int(mi) >= 20 and hourint <= 8:
         hour = int(hour) + 1
         x = "0"
@@ -85,17 +87,18 @@ def clock(strip, color, wait_ms=5000):
         hourint = int(hour)
  
     if int(mi) >= 20 and hourint == 12:
-        hour = ("01")
+        hour = ('01')
+	hour = (str(hour))
         print ("Stunde plus eins nach 9 " +hour)
 
 	
 
     hour = config.get('DEFAULT', hour)
     h = hour.split(",")
+    print ("hier kommt h")
     print (h)
 
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, Color(0,0,0))
+ 
 
     #Es ist Uhr (color z.B. 255, 255, 0)
     
@@ -108,7 +111,7 @@ def clock(strip, color, wait_ms=5000):
 
 
 
-    if int(mi) in range (0,4):
+    if int(mi) in range (0,5):
         strip.setPixelColor(103, Color(color0, color1, color2))
         strip.setPixelColor(104, Color(color0, color1, color2))
         strip.setPixelColor(105, Color(color0, color1, color2))
@@ -125,209 +128,42 @@ def clock(strip, color, wait_ms=5000):
         
     except:
         print ("")
+      
 
-    if hourint == (1):
-        #sieben = ("01")
-        eins = config.get('DEFAULT', '01')
-        
-        h = eins.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        except:
-            print ("eins kein Wert")
-
-    if hourint == (2):
-
-        zwei = config.get('DEFAULT', '02')
-        
-        h = zwei.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        except:
-            print ("zwei kein Wert")
-
-
-
-    if hourint == (3):
-
-        drei = config.get('DEFAULT', '03')
-        
-        h = drei.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        except:
-            print ("drei kein Wert")
-
-
-
-    if hourint == (4):
-
-        vier = config.get('DEFAULT', '04')
-        
-        h = vier.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        except:
-            print ("vier kein Wert")
-
-
-
-    if hourint == (5):
-
-        fuenf = config.get('DEFAULT', '05')
-        
-        h = fuenf.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        except:
-            print ("fuenf kein Wert")
-
-
-
-    if hourint == (6):
-        sechs = config.get('DEFAULT', '06')
-        
-        h = sechs.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
-
-        except:
-            print ("sechs kein Wert")
-
-
-    if hourint == (7):
-        #sieben = ("07")
-        sieben = config.get('DEFAULT', '07')
-        
-        h = sieben.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[5]), Color(color0, color1, color2))
-
-        except:
-            print ("sieben kein Wert")
-  
-
-    if int(hourint) == (8):
-        print (hourint)
-        acht = config.get('DEFAULT', '08')
-        h = acht.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        except:
-            print ("acht kein Wert")   
-
-
-    if int(hourint) == (9):
-        print (hourint)
-        neun = config.get('DEFAULT', '09')
-        h = neun.split(",")
+    try:
 
         strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
+    except:
+        print ("")
+    try:
         strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
+    except:
+        print ("")
+
+    try:
         strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
+    except:
+        print ("")
+    try:
         strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        print ("neun als Wort Wert1", h[0])
-        print ("neun als Wort Wert1", h[1])
-        print ("neun als Wort Wert1", h[2])
-        print ("neun als Wort Wert1", h[3])
-
-
-
-    if hourint == (10):
-
-        zehn = config.get('DEFAULT', '10')
+    except:
+        print ("")
+    try:        
+	strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
+    except:
+        print ("")
+    try:
+	strip.setPixelColor(int(h[5]), Color(color0, color1, color2))
+    except:
+        print ("")
         
-        h = zehn.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-
-        except:
-            print ("zehn kein Wert")
-
-
-
-    if hourint == (11):
-
-        elf = config.get('DEFAULT', '11')
-        
-        h = elf.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-
-        except:
-            print ("elf kein Wert")
-
-
-
-    if hourint == (12):
-
-        zwoelf = config.get('DEFAULT', '12')
-        
-        h = zwoelf.split(",")
-
-        try:
-            strip.setPixelColor(int(h[0]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[1]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[2]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[3]), Color(color0, color1, color2))
-            strip.setPixelColor(int(h[4]), Color(color0, color1, color2))
-        except:
-            print ("zwoelf kein Wert")
 
 
     # ab hier beginnt vor
     if int(mi) in range (20,30) or int(mi) in range (45,60):
         fvor = ("vor")
         fvor = config.get('DEFAULT', 'vor')
+
         
         h = fvor.split(",")
 
