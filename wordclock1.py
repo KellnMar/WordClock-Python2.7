@@ -72,24 +72,24 @@ def clock(strip, color, wait_ms=5000):
 
 
 
-    if int(mi) >= 20 and hourint <= 8:
+    if int(mi) >= 20 and hourint <= 8 and not hourint >= 9:
         hour = int(hour) + 1
         x = "0"
         hour = ((x) + str(hour))
-        print ("Stunde plus eins gleich kleiner 8 " +hour)
+        print ("Stunde plus eins kleiner gleich 8 " +hour)
         hourint = int(hour)
 
 
-    if int(mi) >= 20 and hourint >= 9 and hourint <= 11:
+    elif int(mi) >= 20 and hourint >= 9 and hourint <= 11:
         hour = int(hour) + 1
         hour = (str(hour))
-        print ("Stunde plus eins nach 9 " +hour)
+        print ("Stunde plus eins kleiner gleich 9 " +hour)
         hourint = int(hour)
  
-    if int(mi) >= 20 and hourint == 12:
-        hour = ('01')
-	hour = (str(hour))
-        print ("Stunde plus eins nach 9 " +hour)
+    elif int(mi) >= 20 and hourint == 12:
+        hour = str("01")
+        print ("Stunde plus eins " +hour)
+
 
 	
 
